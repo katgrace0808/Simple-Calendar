@@ -1,0 +1,21 @@
+Code the current date and day of the week - Done
+    -this should update/refresh upon opening of the calendar
+    -positioned at the top of the calendar - Done
+    -understand how moment.js works 
+
+Code timeblocks for business hours
+    -color changes with time of day
+    -use bootstrap grid, add to html 
+
+Click event to allow text added to timeblocks
+    -8am to 5pm
+    -text area
+    -function with if/else?
+
+Add button to save to local storage
+    -button would be in timeblocks
+    -onclick event
+
+If page is refreshed, saved events persist
+
+Make sure able to scroll - Done

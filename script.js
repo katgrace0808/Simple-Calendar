@@ -6,14 +6,14 @@ let userInput = [];
 function simpleCalendar() {
     $(document).ready(function() {
         savedInput();
-        let i;
+        // let i;
         for (let i = 0; i < hourArr.length; i++) {
             let hour = hourArr[i];
             let timeBlock = $("<main>").addClass(".time-block");
             let row = $("<section>").addClass("row");
             let hourCol = $("<label>").addClass(" col-md-2 hour");
-            let textCol = $(`<input class = 'col-md-8 input past present future' 'id =input-${i}>`).attr("placeholder", "Add event here.");
-            let saveCol = $(`<button class = 'col-md-2 saveBtn' 'id=hour-${i}>`).attr("type", "button");
+            let textCol = $(`<input class = 'col-md-8 input past present future' id =input-${i}>`).attr("placeholder", "Add event here.");
+            let saveCol = $(`<button class = 'col-md-2 saveBtn' id=hour-${i}>`).attr("type", "button").attr("data-number", i);
             let imgEl = $("<img>").attr({id: "image", src: "https://cdn0.iconfinder.com/data/icons/simpline-mix/64/simpline_53-512.png"});
             $(".container").append(timeBlock);
             timeBlock.append(row);
@@ -30,17 +30,26 @@ function simpleCalendar() {
         }
         currentDay();
         let storedItem = [];
-
+        
+        function savedInput(){
+            let savedData = JSON.parse(localStorage.getItem("storedItem"));
+            if (savedData !== null) {
+                let inputReturn = $(".input");
+                // console.log($(".input").text(savedData));
+                inputReturn.push(savedData);
+            }
+        }
+        
         
         $(".saveBtn").on("click", function(event) {
             event.preventDefault();
-            let i;
-            let userText = $(`#input-${i}`);
+            let i = $(this).data("number");
+            let userText = $(`#input-${i}`).val().trim();
             let userInput = $(".input").val().trim();
-            let userHour = $(`#hour-${i}`);
-            storedItem.push({userHour: userText});
-            localStorage.setItem("storedItem", JSON.stringify(userInput));
-            // console.log(storedItem);
+            let userHour = `hour-${i}`;
+            storedItem.push({[userHour]: userText});
+            localStorage.setItem("storedItem", JSON.stringify(storedItem));
+            console.log(storedItem);
             simpleCalendar();
         });
         
@@ -61,13 +70,6 @@ function simpleCalendar() {
 //     simpleCalendar();
 // });
 
-function savedInput(){
-    let savedData = JSON.parse(localStorage.getItem("storedItem"));
-    if (savedData !== null) {
-        $(".input").text(savedData);
-        // console.log(savedData);
-    }
-}
 
 });
 

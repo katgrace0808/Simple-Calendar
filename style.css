@@ -73,9 +73,9 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-.input {
+/* .input {
   padding-bottom: 10px;
-}
+} */
 
 #image {
   max-width: 40%;

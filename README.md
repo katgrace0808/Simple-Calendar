@@ -26,3 +26,5 @@ be useful to the end user.
 
 My end result was helped by the aid of some classmates.  We bounced off ideas and build that was working and not working
 with each other, and that alone helped me get over some of the hurdles. Collaboration is a great tool to use.
+
+![Screenshot of deployed site](https://github.com/katgrace0808/Simple-Calendar/blob/master/Assets/SimpleCalendar.PNG)

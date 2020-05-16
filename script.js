@@ -5,10 +5,10 @@ function simpleCalendar() {
     $(document).ready(function() {
         for (let i = 0; i < hourArr.length; i++) {
             let hour = hourArr[i];
-            let timeBlock = $("<main>").addClass(".time-block");
+            let timeBlock = $("<main>").addClass("time-block");
             let row = $("<section>").addClass("row");
             let hourCol = $("<label>").addClass(" col-md-2 hour");
-            let textCol = $(`<textarea class = 'col-md-8 input' id =input-${i}>`).attr("placeholder", "Add event here.");
+            let textCol = $(`<textarea class = 'col-md-8 input description' id =input-${i}>`).attr("placeholder", "Add event here.");
             let saveCol = $(`<button class = 'col-md-2 saveBtn' id=hour-${i}>`).attr("type", "button").attr("data-number", i);
             let imgEl = $("<img>").attr({id: "image", src: "https://cdn0.iconfinder.com/data/icons/simpline-mix/64/simpline_53-512.png"});
             $(".container").append(timeBlock);
